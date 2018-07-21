@@ -5,3 +5,5 @@
 [![airbnb-style](https://img.shields.io/badge/eslint-airbnb-4B32C3.svg)](https://github.com/airbnb/javascript)
 
 Application used to check code coverage by tests on added lines (ex. check coverage just on new code in PR)
+
+⚠️ This app is under development right now
