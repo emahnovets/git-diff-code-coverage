@@ -11,6 +11,7 @@ index 767adb0..44013df 100644
 +import Arguments from '../../../src/arguments/Arguments';
 +import getArgumentsInstance from '../../../src/arguments/ArgumentsFactory';
  
+- 
 -jest.mock('../../src/arguments/Arguments');
 +jest.mock('../../../src/arguments/Arguments');
  

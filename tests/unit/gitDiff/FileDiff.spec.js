@@ -34,6 +34,7 @@ describe('file diff', () => {
 +import Arguments from '../../../src/arguments/Arguments';
 +import getArgumentsInstance from '../../../src/arguments/ArgumentsFactory';
  
+- 
 -jest.mock('../../src/arguments/Arguments');
 +jest.mock('../../../src/arguments/Arguments');
  

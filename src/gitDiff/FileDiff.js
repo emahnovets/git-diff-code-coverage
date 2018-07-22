@@ -14,14 +14,14 @@ export default class FileDiff {
 
     this.diffRaw = diffRaw;
     this.name = null;
-    this.addedLineNumbers = null;
+    this.addedLines = null;
 
     this.parseRawDiff();
   }
 
   parseRawDiff() {
     this.name = this.getNameFromRawDiff();
-    this.addedLineNumbers = this.getAddedLineNumbersFromDiff();
+    this.addedLines = this.getAddedLinesFromDiff();
   }
 
   getNameFromRawDiff() {
@@ -30,22 +30,22 @@ export default class FileDiff {
     return match && match[1];
   }
 
-  getAddedLineNumbersFromDiff() {
+  getAddedLinesFromDiff() {
     const targetFileContent = this.getTargetFileContent();
 
-    return targetFileContent.split('\n').reduce((numbers, line, index) => {
+    return targetFileContent.split('\n').reduce((lines, line, index) => {
       if (line.startsWith('+')) {
-        return [...numbers, index];
+        return [...lines, { content: line, number: index }];
       }
 
-      return numbers;
+      return lines;
     }, []);
   }
 
   getTargetFileContent() {
     const fileDiff = this.getFileDiff();
 
-    return fileDiff.replace(/^-.+\n*\r*/gm, '');
+    return fileDiff.replace(/^-.*\n*\r*/gm, '');
   }
 
   getFileDiff() {
@@ -59,6 +59,10 @@ export default class FileDiff {
   }
 
   get AddedLineNumbers() {
-    return this.addedLineNumbers;
+    return this.addedLines.map(line => line.number);
+  }
+
+  get AddedLines() {
+    return this.addedLines;
   }
 }

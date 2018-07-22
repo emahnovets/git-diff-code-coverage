@@ -29,11 +29,24 @@ describe('git diff', () => {
     expect(gitDiff.ModifiedLines).toEqual([
       {
         fileName: 'tests/unit/arguments/Arguments.spec.js',
-        newLines: [0],
+        newLines: [{
+          number: 0,
+          content: '+import Arguments from \'../../../src/arguments/Arguments\';',
+        }],
       },
       {
         fileName: 'tests/unit/arguments/ArgumentsFactory.spec.js',
-        newLines: [0, 1, 3],
+        newLines: [
+          {
+            number: 0,
+            content: '+import Arguments from \'../../../src/arguments/Arguments\';',
+          }, {
+            number: 1,
+            content: '+import getArgumentsInstance from \'../../../src/arguments/ArgumentsFactory\';',
+          }, {
+            number: 3,
+            content: '+jest.mock(\'../../../src/arguments/Arguments\');',
+          }],
       },
     ]);
   });

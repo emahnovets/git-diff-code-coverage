@@ -37,7 +37,7 @@ export default class GitDiff {
   get ModifiedLines() {
     return this.files.map(file => ({
       fileName: file.Name,
-      newLines: file.AddedLineNumbers,
+      newLines: file.AddedLines,
     }));
   }
 }
