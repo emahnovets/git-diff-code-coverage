@@ -1,4 +1,4 @@
-import Arguments from '../../src/arguments/Arguments';
+import Arguments from '../../../src/arguments/Arguments';
 
 describe('arguments', () => {
   test('should parse command line args', () => {

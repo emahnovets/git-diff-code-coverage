@@ -1,7 +1,7 @@
-import Arguments from '../../src/arguments/Arguments';
-import getArgumentsInstance from '../../src/arguments/ArgumentsFactory';
+import Arguments from '../../../src/arguments/Arguments';
+import getArgumentsInstance from '../../../src/arguments/ArgumentsFactory';
 
-jest.mock('../../src/arguments/Arguments');
+jest.mock('../../../src/arguments/Arguments');
 
 describe('arguments factory', () => {
   afterAll(() => {
