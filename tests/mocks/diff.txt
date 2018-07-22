@@ -1,0 +1,60 @@
+diff --git a/tests/arguments/Arguments.spec.js b/tests/unit/arguments/Arguments.spec.js
+similarity index 97%
+rename from tests/arguments/Arguments.spec.js
+rename to tests/unit/arguments/Arguments.spec.js
+index 116ca8d..77659d3 100644
+--- a/tests/arguments/Arguments.spec.js
++++ b/tests/unit/arguments/Arguments.spec.js
+@@ -1,57 +1,57 @@
+-import Arguments from '../../src/arguments/Arguments';
++import Arguments from '../../../src/arguments/Arguments';
+ 
+ describe('arguments', () => {
+   test('should parse command line args', () => {
+     process.argv = ['node', 'jest',
+       '--repoPath', './myCoolProject',
+       '--source', '5d8469086d24b900532ebfbced71c9f27bcb9744',
+       '--target', 'abe9a5f34d75e204ef46149bdc81920c647ba8ab',
+       '--reportPath', 'coverage/coverage-summary.json',
+     ];
+ 
+     const argumentsInstance = new Arguments();
+ 
+     expect(argumentsInstance.GitRepoPath).toBe('./myCoolProject');
+     expect(argumentsInstance.SourceCommitHash).toBe('5d8469086d24b900532ebfbced71c9f27bcb9744');
+     expect(argumentsInstance.TargetCommitHash).toBe('abe9a5f34d75e204ef46149bdc81920c647ba8ab');
+     expect(argumentsInstance.CoverageReportPath).toBe('coverage/coverage-summary.json');
+   });
+ });
+diff --git a/tests/arguments/ArgumentsFactory.spec.js b/tests/unit/arguments/ArgumentsFactory.spec.js
+similarity index 76%
+rename from tests/arguments/ArgumentsFactory.spec.js
+rename to tests/unit/arguments/ArgumentsFactory.spec.js
+index 767adb0..44013df 100644
+--- a/tests/arguments/ArgumentsFactory.spec.js
++++ b/tests/unit/arguments/ArgumentsFactory.spec.js
+@@ -1,21 +1,21 @@
+-import Arguments from '../../src/arguments/Arguments';
+-import getArgumentsInstance from '../../src/arguments/ArgumentsFactory';
++import Arguments from '../../../src/arguments/Arguments';
++import getArgumentsInstance from '../../../src/arguments/ArgumentsFactory';
+ 
+-jest.mock('../../src/arguments/Arguments');
++jest.mock('../../../src/arguments/Arguments');
+ 
+ describe('arguments factory', () => {
+   afterAll(() => {
+     jest.resetAllMocks();
+   });
+ 
+   test('should create one instance if Arguments class', () => {
+     const firstArgumentsInstance = getArgumentsInstance();
+     const secondArgumentsInstance = getArgumentsInstance();
+     const thirdArgumentsInstance = getArgumentsInstance();
+ 
+     expect(firstArgumentsInstance).toBeInstanceOf(Arguments);
+     expect(Arguments).toHaveBeenCalledTimes(1);
+     expect(firstArgumentsInstance).toBe(secondArgumentsInstance);
+     expect(secondArgumentsInstance).toBe(thirdArgumentsInstance);
+   });
+ });
