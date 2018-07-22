@@ -1,6 +1,6 @@
 {
   "name": "git-diff-code-coverage",
-  "version": "0.0.2-0",
+  "version": "0.0.2",
   "description": "Application used to check code coverage by tests on added lines (ex. check coverage just on new code in PR)",
   "main": "index.js",
   "scripts": {
