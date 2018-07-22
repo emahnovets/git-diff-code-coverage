@@ -32,24 +32,34 @@ async function main() {
 
   const overallCoverage = addedLinesCount ? (coveredLinesCount / addedLinesCount) * 100 : 0;
 
-  console.log(`Overall coverage: ${overallCoverage.toFixed(2)}%\n`);
+  if (!args.Silent) {
+    console.log(`Overall coverage: ${overallCoverage.toFixed(2)}%\n`);
+  }
 
-  fileResults.forEach((file) => {
-    const coveredFileLinesCount = file.lines.filter(line => line.covered).length;
-    const coverage = file.lines.length ? 100 * coveredFileLinesCount / file.lines.length : 0;
+  if (args.Verbose) {
+    fileResults.forEach((file) => {
+      const coveredFileLinesCount = file.lines.filter(line => line.covered).length;
+      const coverage = file.lines.length ? 100 * coveredFileLinesCount / file.lines.length : 0;
 
-    console.log(`File: ${file.fileName}`);
-    console.log(`Coverage: ${coverage.toFixed(2)}%`);
+      console.log(`File: ${file.fileName}`);
+      console.log(`Coverage: ${coverage.toFixed(2)}%`);
 
-    if (file.lines.length) {
-      console.log('Details:');
-    }
+      if (file.lines.length) {
+        console.log('Details:');
+      }
 
-    file.lines.forEach(({ number, covered, content }) => {
-      console.log(`${covered ? 'covered' : 'non-covered'} ${number} ${content.replace(/\+\s*/, '')}`);
+      file.lines.forEach(({ number, covered, content }) => {
+        console.log(`${covered ? 'covered' : 'non-covered'} ${number} ${content.replace(/\+\s*/, '')}`);
+      });
+      console.log();
     });
-    console.log();
-  });
+  }
+
+  if (overallCoverage > args.MinimumOverallCoverage) {
+    process.exit(0);
+  } else {
+    process.exit(1);
+  }
 }
 
 main();

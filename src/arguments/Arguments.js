@@ -3,19 +3,28 @@ import commandLineArgs from 'command-line-args';
 export default class Arguments {
   constructor() {
     const {
-      repoPath, source, target, reportPath,
+      repoPath, source, target, reportPath, verbose, minimumOverallCoverage, silent,
     } = commandLineArgs([
       {
         name: 'repoPath', type: String,
       },
       {
-        name: 'source', alias: 's', type: String,
+        name: 'source', type: String,
       },
       {
-        name: 'target', alias: 't', type: String, defaultValue: 'master',
+        name: 'target', type: String, defaultValue: 'master',
       },
       {
         name: 'reportPath', type: String, defaultValue: 'coverage/coverage-summary.json',
+      },
+      {
+        name: 'verbose', alias: 'v', type: Boolean,
+      },
+      {
+        name: 'silent', alias: 's', type: Boolean,
+      },
+      {
+        name: 'minimumOverallCoverage', alias: 'm', type: Number, defaultValue: 70,
       },
     ]);
 
@@ -23,6 +32,9 @@ export default class Arguments {
     this.source = source;
     this.target = target;
     this.reportPath = reportPath;
+    this.verbose = verbose;
+    this.minimumOverallCoverage = minimumOverallCoverage;
+    this.silent = silent;
 
     this.validateRepositoryPathOption();
   }
@@ -41,6 +53,18 @@ export default class Arguments {
 
   get CoverageReportPath() {
     return this.reportPath;
+  }
+
+  get Verbose() {
+    return this.verbose;
+  }
+
+  get Silent() {
+    return this.silent;
+  }
+
+  get MinimumOverallCoverage() {
+    return this.minimumOverallCoverage;
   }
 
   validateRepositoryPathOption() {
