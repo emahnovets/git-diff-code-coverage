@@ -1,3 +1,4 @@
+import minimatch from 'minimatch';
 import getGitDiff from './gitDiff';
 import CoverageReport from './corevageReport';
 import getArgumentsInstance from './arguments/ArgumentsFactory';
@@ -6,8 +7,14 @@ async function main() {
   const args = getArgumentsInstance();
   const diff = await getGitDiff();
   const report = new CoverageReport(`${args.GitRepoPath}/${args.CoverageReportPath}`);
+  const filesToCheck = diff.ModifiedLines.filter(({ fileName }) => minimatch(fileName, args.FileTemplate));
 
-  const fileResults = diff.ModifiedLines.map(file => ({
+  if (!filesToCheck.length) {
+    console.log('No files changed');
+    process.exit(0);
+  }
+
+  const fileResults = (filesToCheck || []).map(file => ({
     fileName: file.fileName,
     lines: file.newLines.reduce((lines, { number, content }) => {
       if (report.isLineShouldBeCovered(file.fileName, number + 1)) {

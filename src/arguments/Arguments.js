@@ -3,7 +3,7 @@ import commandLineArgs from 'command-line-args';
 export default class Arguments {
   constructor() {
     const {
-      repoPath, source, target, reportPath, verbose, minimumOverallCoverage, silent,
+      repoPath, source, target, reportPath, verbose, minimumOverallCoverage, silent, fileTemplate,
     } = commandLineArgs([
       {
         name: 'repoPath', type: String,
@@ -26,6 +26,9 @@ export default class Arguments {
       {
         name: 'minimumOverallCoverage', alias: 'm', type: Number, defaultValue: 70,
       },
+      {
+        name: 'fileTemplate', alias: 'f', type: String, defaultValue: 'src/**/*.js',
+      },
     ]);
 
     this.repoPath = repoPath;
@@ -35,6 +38,7 @@ export default class Arguments {
     this.verbose = verbose;
     this.minimumOverallCoverage = minimumOverallCoverage;
     this.silent = silent;
+    this.fileTemplate = fileTemplate;
 
     this.validateRepositoryPathOption();
   }
@@ -65,6 +69,10 @@ export default class Arguments {
 
   get MinimumOverallCoverage() {
     return this.minimumOverallCoverage;
+  }
+
+  get FileTemplate() {
+    return this.fileTemplate;
   }
 
   validateRepositoryPathOption() {
