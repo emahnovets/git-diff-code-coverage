@@ -33,4 +33,11 @@ export default class GitDiff {
   get FileNames() {
     return this.files.map(file => file.Name);
   }
+
+  get ModifiedLines() {
+    return this.files.map(file => ({
+      fileName: file.Name,
+      newLines: file.AddedLineNumbers,
+    }));
+  }
 }

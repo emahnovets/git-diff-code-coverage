@@ -24,4 +24,17 @@ describe('git diff', () => {
       'tests/unit/arguments/ArgumentsFactory.spec.js',
     ]);
   });
+
+  test('should return array of objects with fileName and modifiedLines', () => {
+    expect(gitDiff.ModifiedLines).toEqual([
+      {
+        fileName: 'tests/unit/arguments/Arguments.spec.js',
+        newLines: [0],
+      },
+      {
+        fileName: 'tests/unit/arguments/ArgumentsFactory.spec.js',
+        newLines: [0, 1, 3],
+      },
+    ]);
+  });
 });
