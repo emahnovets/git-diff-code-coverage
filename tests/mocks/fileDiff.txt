@@ -1,0 +1,32 @@
+diff --git a/tests/arguments/ArgumentsFactory.spec.js b/tests/unit/arguments/ArgumentsFactory.spec.js
+similarity index 76%
+rename from tests/arguments/ArgumentsFactory.spec.js
+rename to tests/unit/arguments/ArgumentsFactory.spec.js
+index 767adb0..44013df 100644
+--- a/tests/arguments/ArgumentsFactory.spec.js
++++ b/tests/unit/arguments/ArgumentsFactory.spec.js
+@@ -1,21 +1,21 @@
+-import Arguments from '../../src/arguments/Arguments';
+-import getArgumentsInstance from '../../src/arguments/ArgumentsFactory';
++import Arguments from '../../../src/arguments/Arguments';
++import getArgumentsInstance from '../../../src/arguments/ArgumentsFactory';
+ 
+-jest.mock('../../src/arguments/Arguments');
++jest.mock('../../../src/arguments/Arguments');
+ 
+ describe('arguments factory', () => {
+   afterAll(() => {
+     jest.resetAllMocks();
+   });
+ 
+   test('should create one instance if Arguments class', () => {
+     const firstArgumentsInstance = getArgumentsInstance();
+     const secondArgumentsInstance = getArgumentsInstance();
+     const thirdArgumentsInstance = getArgumentsInstance();
+ 
+     expect(firstArgumentsInstance).toBeInstanceOf(Arguments);
+     expect(Arguments).toHaveBeenCalledTimes(1);
+     expect(firstArgumentsInstance).toBe(secondArgumentsInstance);
+     expect(secondArgumentsInstance).toBe(thirdArgumentsInstance);
+   });
+ });
