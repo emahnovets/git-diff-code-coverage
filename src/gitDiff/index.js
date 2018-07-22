@@ -8,7 +8,17 @@ function getDiff() {
   const git = simpleGit(args.GitRepoPath);
 
   return new Promise((resolve, reject) => {
-    git.diff(['-U10000'], (err, diff) => {
+    let gitDiffArguments = ['-U10000'];
+
+    if (args.TargetCommitHash) {
+      gitDiffArguments = [args.TargetCommitHash, ...gitDiffArguments];
+
+      if (args.SourceCommitHash) {
+        gitDiffArguments = [args.SourceCommitHash, ...gitDiffArguments];
+      }
+    }
+
+    git.diff(gitDiffArguments, (err, diff) => {
       if (err) {
         reject(err);
       } else {
