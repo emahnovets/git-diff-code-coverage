@@ -17,10 +17,10 @@ async function main() {
 
   reporter.displayResults();
 
-  if (reporter.overallCoverage > args.MinimumOverallCoverage) {
+  if (reporter.overallCoverage >= args.MinimumOverallCoverage) {
     process.exit(0);
   } else {
-    console.error(`Overall coverage should be more than ${args.MinimumOverallCoverage}%`);
+    console.error(`Current overall coverage (${reporter.overallCoverage.toFixed(2)}%) should be more than ${args.MinimumOverallCoverage}%`);
     process.exit(1);
   }
 }
