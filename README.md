@@ -22,7 +22,7 @@ npm test
 3. Run application to analyze it
 
 ```
-gitDiffCodeCoverage --repoPath=/Users/user/Src/example --reportPath=artifacts/coverage/coverage-summary.json --fileTemplate=app/**/*.js --source=master --target=newBranch -v
+gitDiffCodeCoverage --repoPath=/Users/user/Src/example --reportPath=artifacts/coverage/coverage-summary.json --fileTemplate=app/**/*.js --source=newBranch --target=master -v
 ```
 
 ## Arguments
@@ -32,12 +32,12 @@ Path to folder with initiated git repository (required)
 --repoPath, String
 ```
 
-Source branch or commit hash (ex. master)
+Source branch or commit hash (ex. myCoolFeature)
 ```
 --source, String
 ```
 
-Target branch or commit hash (ex. myCoolFeature)
+Target branch or commit hash (ex. master)
 
 ```
 --target, String, defaultValue: 'master'

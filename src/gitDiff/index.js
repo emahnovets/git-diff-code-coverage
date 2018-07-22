@@ -11,11 +11,11 @@ function getDiff() {
     let gitDiffArguments = ['-U10000'];
 
     if (args.TargetCommitHash) {
-      gitDiffArguments = [args.TargetCommitHash, ...gitDiffArguments];
-
       if (args.SourceCommitHash) {
         gitDiffArguments = [args.SourceCommitHash, ...gitDiffArguments];
       }
+
+      gitDiffArguments = [args.TargetCommitHash, ...gitDiffArguments];
     }
 
     git.diff(gitDiffArguments, (err, diff) => {
