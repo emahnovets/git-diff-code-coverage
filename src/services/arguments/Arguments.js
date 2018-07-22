@@ -23,6 +23,8 @@ export default class Arguments {
     this.source = source;
     this.target = target;
     this.reportPath = reportPath;
+
+    this.validateRepositoryPathOption();
   }
 
   get GitRepoPath() {
@@ -39,5 +41,11 @@ export default class Arguments {
 
   get CoverageReportPath() {
     return this.reportPath;
+  }
+
+  validateRepositoryPathOption() {
+    if (!this.GitRepoPath) {
+      throw new Error('repoPath option is required');
+    }
   }
 }

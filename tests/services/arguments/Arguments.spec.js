@@ -34,7 +34,7 @@ describe('arguments', () => {
   });
 
   test('should have \'master\' as default value for target option', () => {
-    process.argv = ['node', 'jest'];
+    process.argv = ['node', 'jest', '--repoPath', './myCoolProject'];
 
     const argumentsInstance = new Arguments();
 
@@ -42,10 +42,16 @@ describe('arguments', () => {
   });
 
   test('should have default value for coverage report path option', () => {
-    process.argv = ['node', 'jest'];
+    process.argv = ['node', 'jest', '--repoPath', './myCoolProject'];
 
     const argumentsInstance = new Arguments();
 
     expect(argumentsInstance.CoverageReportPath).toBe('coverage/coverage-summary.json');
+  });
+
+  test('should raise an error is repoPath option haven\'t passed', () => {
+    process.argv = ['node', 'jest'];
+
+    expect(() => new Arguments()).toThrowError('repoPath option is required');
   });
 });
