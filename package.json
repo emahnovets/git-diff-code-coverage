@@ -16,6 +16,10 @@
     "tests",
     "diff"
   ],
+  "bin": {
+    "gitDiffCodeCoverage": "./bin/main.js"
+  },
+  "preferGlobal": true,
   "author": "Evgeny Mahnovets <evgeny.mahnovets@gmail.com>",
   "license": "MIT",
   "bugs": {

@@ -9,15 +9,20 @@ Application used to check code coverage by tests on added lines (ex. check cover
 
 ## How to use?
 
-1. Run test to generate coverage report
+1. Install tool
+```
+npm i -g git-diff-code-coverage
+```
+
+2. Run test to generate coverage report
 ```
 npm test
 ```
 
-2. Run application to analyze it
+3. Run application to analyze it
 
 ```
-git-diff-code-coverage --repoPath=/Users/user/Src/example --reportPath=artifacts/coverage/coverage-summary.json --fileTemplate=app/**/*.js --source=master --target=newBranch -v
+gitDiffCodeCoverage --repoPath=/Users/user/Src/example --reportPath=artifacts/coverage/coverage-summary.json --fileTemplate=app/**/*.js --source=master --target=newBranch -v
 ```
 
 ## Arguments
