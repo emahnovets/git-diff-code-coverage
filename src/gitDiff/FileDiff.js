@@ -51,7 +51,7 @@ export default class FileDiff {
   getFileDiff() {
     const match = FileDiff.FileDiffRegex.exec(this.diffRaw);
 
-    return match && match[1];
+    return (match && match[1]) || '';
   }
 
   get Name() {
