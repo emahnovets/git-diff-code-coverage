@@ -1,4 +1,5 @@
 import minimatch from 'minimatch';
+import Table from 'console.table';
 import getArgumentsInstance from './arguments/ArgumentsFactory';
 
 export default class Reporter {
@@ -73,8 +74,15 @@ export default class Reporter {
   displayFilesDetails() {
     if (this.args.Verbose) {
       this.fileReports.forEach((file) => {
-        console.log(`File: ${file.fileName}: ${file.coverage.toFixed(2)}%\n`);
+        if (file.linesCount) {
+          console.log(`File: ${file.fileName}: ${file.coverage.toFixed(2)}%`);
+          this.displayLinesResults(file);
+        }
       });
     }
+  }
+
+  displayLinesResults({ lines }) {
+    console.log(Table.getTable(lines));
   }
 }
