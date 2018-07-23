@@ -43,7 +43,7 @@ Target branch or commit hash (ex. master)
 --target, String, defaultValue: 'master'
 ```
 
-Path to generated report (json coverage report)
+Path to generated report (json summary coverage report)
 ```
 --reportPath, String, defaultValue: 'coverage/coverage-summary.json'
 ```
