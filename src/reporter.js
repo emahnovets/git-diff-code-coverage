@@ -72,14 +72,15 @@ export default class Reporter {
   }
 
   displayFilesDetails() {
-    if (this.args.Verbose) {
-      this.fileReports.forEach((file) => {
-        if (file.linesCount) {
-          console.log(`File: ${file.fileName}: ${file.coverage.toFixed(2)}%`);
+    this.fileReports.forEach((file) => {
+      if (file.linesCount) {
+        console.log(`File: ${file.fileName}: ${file.coverage.toFixed(2)}%`);
+
+        if (this.args.Verbose) {
           this.displayLinesResults(file);
         }
-      });
-    }
+      }
+    });
   }
 
   displayLinesResults({ lines }) {
