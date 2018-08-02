@@ -1,5 +1,4 @@
 import minimatch from 'minimatch';
-import Table from 'console.table';
 import getArgumentsInstance from './arguments/ArgumentsFactory';
 
 export default class Reporter {
@@ -78,12 +77,13 @@ export default class Reporter {
 
         if (this.args.Verbose) {
           this.displayLinesResults(file);
+          console.log('\n');
         }
       }
     });
   }
 
   displayLinesResults({ lines }) {
-    console.log(Table.getTable(lines));
+    lines.forEach(line => console.log(`${line.covered} | ${line.number}: ${line.content}`));
   }
 }
