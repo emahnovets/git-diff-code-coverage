@@ -73,7 +73,8 @@ export default class Reporter {
   displayFilesDetails() {
     this.fileReports.forEach((file) => {
       if (file.linesCount) {
-        console.log(`File: ${file.fileName}: ${file.coverage.toFixed(2)}%`);
+        const countOfCoveredLines = file.lines.filter(({ covered }) => covered).length;
+        console.log(`File: ${file.fileName}: ${file.coverage.toFixed(2)}% | ${countOfCoveredLines} / ${file.lines.length}`);
 
         if (this.args.Verbose) {
           this.displayLinesResults(file);
