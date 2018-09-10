@@ -33,7 +33,6 @@
     "command-line-args": "^5.0.2",
     "eslint-plugin-jest": "^21.18.0",
     "esm": "^3.0.72",
-    "jest": "^23.4.1",
     "jest-runner-eslint": "^0.6.0",
     "minimatch": "^3.0.4",
     "promise": "^8.0.1",
@@ -43,7 +42,8 @@
   "devDependencies": {
     "eslint": "^4.19.1",
     "eslint-config-airbnb-base": "^13.0.0",
-    "eslint-plugin-import": "^2.13.0"
+    "eslint-plugin-import": "^2.13.0",
+    "jest": "^23.5.0"
   },
   "jest": {
     "projects": [
