@@ -1,3 +1,3 @@
-import JSONCoverageReport from './JSONCoverageReport';
+import ReportFactory from './ReportFactory';
 
-export default JSONCoverageReport;
+export default ReportFactory;

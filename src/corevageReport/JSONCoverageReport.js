@@ -1,6 +1,10 @@
 import { readFileSync, existsSync } from 'fs';
 
 export default class JSONCoverageReport {
+  static build(reportPath) {
+    return new JSONCoverageReport(reportPath);
+  }
+
   constructor(reportPath) {
     this.reportPath = reportPath;
     this.reportContent = null;

@@ -10,6 +10,7 @@ describe('arguments', () => {
       '--silent',
       '--verbose',
       '--minimumOverallCoverage', '90',
+      '--reportFormat', 'lcov',
     ];
 
     const argumentsInstance = new Arguments();
@@ -21,6 +22,7 @@ describe('arguments', () => {
     expect(argumentsInstance.Silent).toBeTruthy();
     expect(argumentsInstance.Verbose).toBeTruthy();
     expect(argumentsInstance.MinimumOverallCoverage).toBe(90);
+    expect(argumentsInstance.ReportFormat).toBe('lcov');
   });
 
   test('should parse aliases correctly', () => {
@@ -45,6 +47,14 @@ describe('arguments', () => {
     const argumentsInstance = new Arguments();
 
     expect(argumentsInstance.TargetCommitHash).toBe('master');
+  });
+
+  test('should have \'lcov\' as default value for reportFormat', () => {
+    process.argv = ['node', 'jest', '--repoPath', './myCoolProject'];
+
+    const argumentsInstance = new Arguments();
+
+    expect(argumentsInstance.ReportFormat).toBe('lcov');
   });
 
   test('should have default value for coverage report path option', () => {

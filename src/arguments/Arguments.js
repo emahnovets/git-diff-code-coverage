@@ -3,7 +3,15 @@ import commandLineArgs from 'command-line-args';
 export default class Arguments {
   constructor() {
     const {
-      repoPath, source, target, reportPath, verbose, minimumOverallCoverage, silent, fileTemplate,
+      repoPath,
+      source,
+      target,
+      reportPath,
+      verbose,
+      minimumOverallCoverage,
+      silent,
+      fileTemplate,
+      reportFormat,
     } = commandLineArgs([
       {
         name: 'repoPath', type: String,
@@ -29,6 +37,9 @@ export default class Arguments {
       {
         name: 'fileTemplate', alias: 'f', type: String, defaultValue: 'src/**/*.js',
       },
+      {
+        name: 'reportFormat', type: String, defaultValue: 'lcov',
+      },
     ]);
 
     this.repoPath = repoPath;
@@ -39,6 +50,7 @@ export default class Arguments {
     this.minimumOverallCoverage = minimumOverallCoverage;
     this.silent = silent;
     this.fileTemplate = fileTemplate;
+    this.reportFormat = reportFormat;
 
     this.validateRepositoryPathOption();
   }
@@ -73,6 +85,10 @@ export default class Arguments {
 
   get FileTemplate() {
     return this.fileTemplate;
+  }
+
+  get ReportFormat() {
+    return this.reportFormat;
   }
 
   validateRepositoryPathOption() {
