@@ -21,7 +21,7 @@ npm test
 3. Run application to analyze it
 
 ```
-gitDiffCodeCoverage --repoPath=/Users/user/Src/example --reportPath=artifacts/coverage/coverage-summary.json --fileTemplate=app/**/*.js --source=newBranch --target=master -v
+gitDiffCodeCoverage --repoPath=/Users/user/Src/example --reportPath=artifacts/coverage/coverage-summary.json --fileTemplate=app/**/*.js --source=newBranch --target=master --reportFormat=lcov -v
 ```
 
 ## Arguments
@@ -67,9 +67,14 @@ Files to analyze
 --fileTemplate, -f, String, defaultValue: 'src/**/*.js'
 ```
 
+Report format
+```
+--reportFormat, String, defaultValue: 'lcov', possible values: 'json', 'lcov'
+```
+
 
 ## Areas to improve:
 * Analyse git default output (using data between @@ ... @@)
-* Add other coverage report support (lcov, etc.)
+* Add other coverage report support
 * Improve coverage
 * Generate pretty output

@@ -34,6 +34,7 @@
     "eslint-plugin-jest": "^21.18.0",
     "esm": "^3.0.72",
     "jest-runner-eslint": "^0.6.0",
+    "lcov-parse": "^1.0.0",
     "minimatch": "^3.0.4",
     "promise": "^8.0.1",
     "regenerator-runtime": "^0.12.0",

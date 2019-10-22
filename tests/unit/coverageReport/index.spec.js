@@ -1,8 +1,8 @@
 import CoverageReport from '../../../src/corevageReport';
-import JSONCoverageReport from '../../../src/corevageReport/JSONCoverageReport';
+import ReportFactory from '../../../src/corevageReport/ReportFactory';
 
 describe('index report', () => {
-  test('should export JSON report as defualt', () => {
-    expect(CoverageReport).toBe(JSONCoverageReport);
+  test('should export report factory as default', () => {
+    expect(CoverageReport).toBe(ReportFactory);
   });
 });

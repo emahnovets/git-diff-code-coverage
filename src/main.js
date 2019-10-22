@@ -1,12 +1,17 @@
 import getGitDiff from './gitDiff';
-import CoverageReport from './corevageReport';
+import ReportFactory from './corevageReport';
 import getArgumentsInstance from './arguments/ArgumentsFactory';
 import Reporter from './reporter';
 
 async function main() {
   const args = getArgumentsInstance();
+  const reportFactory = new ReportFactory();
   const diff = await getGitDiff();
-  const report = new CoverageReport(`${args.GitRepoPath}/${args.CoverageReportPath}`);
+
+  const report = await reportFactory.create(
+    `${args.GitRepoPath}/${args.CoverageReportPath}`,
+    args.ReportFormat,
+  );
 
   const reporter = new Reporter(diff, report);
 
