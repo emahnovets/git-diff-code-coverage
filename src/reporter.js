@@ -1,3 +1,4 @@
+import semver from 'semver';
 import minimatch from 'minimatch';
 import getArgumentsInstance from './arguments/ArgumentsFactory';
 
@@ -85,6 +86,10 @@ export default class Reporter {
   }
 
   displayLinesResults({ lines }) {
-    lines.forEach(line => console.log(`${line.covered} | ${line.number}: ${line.content}`));
+    if (semver.gte(process.version, '10.0.0')) {
+      console.table(lines, ['covered', 'number', 'content']);
+    } else {
+      lines.forEach(line => console.log(`${line.covered} | ${line.number}: ${line.content}`));
+    }
   }
 }
