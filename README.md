@@ -1,6 +1,6 @@
 # Git Diff Code Coverage
 
-[![Build Status](https://travis-ci.org/EvgenyMahnovets/git-diff-code-coverage.svg?branch=master)](https://travis-ci.org/EvgenyMahnovets/git-diff-code-coverage)
+[![Build Status](https://travis-ci.org/emahnovets/git-diff-code-coverage.svg?branch=master)](https://travis-ci.org/emahnovets/git-diff-code-coverage)
 [![airbnb-style](https://img.shields.io/badge/eslint-airbnb-4B32C3.svg)](https://github.com/airbnb/javascript)
 [![npm version](https://badge.fury.io/js/git-diff-code-coverage.svg)](https://badge.fury.io/js/git-diff-code-coverage)
 
