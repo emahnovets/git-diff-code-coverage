@@ -1,5 +1,4 @@
 import simpleGit from 'simple-git';
-import Promise from 'promise';
 import GitDiff from './GitDiff';
 import getArgumentsInstance from '../arguments/ArgumentsFactory';
 
