@@ -25,5 +25,5 @@ jobs:
     - run: npm run lint
     - run: npm run test:coverage
     - name: Check Coverage
-      if: github.ref == 'refs/heads/main'
+      if: github.ref != 'refs/heads/main'
       run: npm run check:coverage
