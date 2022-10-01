@@ -32,7 +32,7 @@ export default class LCOVCoverageReport {
     return new Promise((resolve, reject) => {
       parse(reportContent, (error, report) => {
         if (error) {
-          reject(error);
+          reject(new Error(error));
         } else {
           resolve(report);
         }

@@ -15,7 +15,7 @@ export default class GitDiff {
   parseRawDiff() {
     const fileParts = this.getFileDiffs();
 
-    this.files = fileParts.map(fileDiffRaw => new FileDiff(fileDiffRaw));
+    this.files = fileParts.map((fileDiffRaw) => new FileDiff(fileDiffRaw));
   }
 
   getFileDiffs() {
@@ -31,11 +31,11 @@ export default class GitDiff {
   }
 
   get FileNames() {
-    return this.files.map(file => file.Name);
+    return this.files.map((file) => file.Name);
   }
 
   get ModifiedLines() {
-    return this.files.map(file => ({
+    return this.files.map((file) => ({
       fileName: file.Name,
       newLines: file.AddedLines,
     }));

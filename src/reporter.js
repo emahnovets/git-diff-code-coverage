@@ -90,7 +90,7 @@ export default class Reporter {
     if (semver.gte(process.version, '10.0.0')) {
       console.table(lines, ['covered', 'number', 'content']);
     } else {
-      lines.forEach(line => console.log(`${line.covered} | ${line.number}: ${line.content}`));
+      lines.forEach((line) => console.log(`${line.covered} | ${line.number}: ${line.content}`));
     }
   }
 }

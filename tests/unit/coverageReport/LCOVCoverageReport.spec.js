@@ -1,21 +1,15 @@
 import LCOVCoverageReport from '../../../src/corevageReport/LCOVCoverageReport';
-import parsedLcov from '../../mocks/parse-lcov';
+import parsedLcov from '../../mocks/parse-lcov.json';
 
 describe('lcov coverage report', () => {
   test('should raise an error in file does not exists', async () => {
-    try {
-      await LCOVCoverageReport.build('testPath/example.json');
-    } catch (error) {
-      expect(error).toStrictEqual(new Error('coverage report does not exists, check path'));
-    }
+    await expect(LCOVCoverageReport.build('testPath/example.json'))
+      .rejects.toThrow('coverage report does not exists, check path');
   });
 
   test('should raise an error in file has corrupted content', async () => {
-    try {
-      await LCOVCoverageReport.build('tests/mocks/invalid-lcov.info');
-    } catch (error) {
-      expect(error).toStrictEqual('Failed to parse string');
-    }
+    await expect(LCOVCoverageReport.build('tests/mocks/invalid-lcov.info'))
+      .rejects.toEqual(new Error('Failed to parse string'));
   });
 
   test('should parse report content', async () => {

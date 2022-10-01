@@ -3,12 +3,12 @@ import JSONCoverageReport from '../../../src/corevageReport/JSONCoverageReport';
 describe('json coverage report', () => {
   test('should raise an error in file does not exists', () => {
     expect(() => new JSONCoverageReport('testPath/example.json'))
-      .toThrowError('coverage report does not exists, check path');
+      .toThrow('coverage report does not exists, check path');
   });
 
   test('should raise an error in file has corrupted content', () => {
     expect(() => new JSONCoverageReport('tests/mocks/invalid-json.json'))
-      .toThrowError('can\'t parse report content');
+      .toThrow('can\'t parse report content');
   });
 
   test('should parse report content', () => {

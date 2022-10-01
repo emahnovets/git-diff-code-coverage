@@ -76,6 +76,6 @@ describe('arguments', () => {
   test('should raise an error is repoPath option haven\'t passed', () => {
     process.argv = ['node', 'jest'];
 
-    expect(() => new Arguments()).toThrowError('repoPath option is required');
+    expect(() => new Arguments()).toThrow('repoPath option is required');
   });
 });

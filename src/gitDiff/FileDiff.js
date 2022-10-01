@@ -59,7 +59,7 @@ export default class FileDiff {
   }
 
   get AddedLineNumbers() {
-    return this.addedLines.map(line => line.number);
+    return this.addedLines.map((line) => line.number);
   }
 
   get AddedLines() {
