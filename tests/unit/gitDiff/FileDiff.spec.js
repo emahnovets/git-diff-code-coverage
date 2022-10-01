@@ -53,7 +53,8 @@ describe('file diff', () => {
      expect(firstArgumentsInstance).toBe(secondArgumentsInstance);
      expect(secondArgumentsInstance).toBe(thirdArgumentsInstance);
    });
- });`);
+ });
+`);
   });
 
   test('should extract new file content from raw git diff', () => {
@@ -77,6 +78,7 @@ describe('file diff', () => {
      expect(firstArgumentsInstance).toBe(secondArgumentsInstance);
      expect(secondArgumentsInstance).toBe(thirdArgumentsInstance);
    });
- });`);
+ });
+`);
   });
 });
