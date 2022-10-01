@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import semver from 'semver';
 import minimatch from 'minimatch';
 import getArgumentsInstance from './arguments/ArgumentsFactory';

@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import getGitDiff from './gitDiff';
 import ReportFactory from './corevageReport';
 import getArgumentsInstance from './arguments/ArgumentsFactory';
