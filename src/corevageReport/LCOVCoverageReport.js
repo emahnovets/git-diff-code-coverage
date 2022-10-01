@@ -1,6 +1,5 @@
 import { readFileSync, existsSync } from 'fs';
 import parse from 'lcov-parse';
-import Promise from 'promise';
 
 export default class LCOVCoverageReport {
   static async build(reportPath) {
@@ -33,7 +32,7 @@ export default class LCOVCoverageReport {
     return new Promise((resolve, reject) => {
       parse(reportContent, (error, report) => {
         if (error) {
-          reject(error);
+          reject(new Error(error));
         } else {
           resolve(report);
         }

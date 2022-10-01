@@ -17,8 +17,11 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
+      with:
+        fetch-depth: 0
     - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v3
     - run: npm ci
     - run: npm run lint
-    - run: npm test
+    - run: npm run test:coverage
+    - run: npm run check:coverage

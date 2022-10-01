@@ -11,11 +11,11 @@ describe('git diff', () => {
   });
 
   test('should raise an error in passed incorrect data', () => {
-    expect(() => new GitDiff()).toThrowError('raw diff should be passed');
-    expect(() => new GitDiff('')).toThrowError('raw diff should be passed');
-    expect(() => new GitDiff({})).toThrowError('raw diff should be passed');
+    expect(() => new GitDiff()).toThrow('raw diff should be passed');
+    expect(() => new GitDiff('')).toThrow('raw diff should be passed');
+    expect(() => new GitDiff({})).toThrow('raw diff should be passed');
 
-    expect(() => new GitDiff('abc')).not.toThrowError('raw diff should be passed');
+    expect(() => new GitDiff('abc')).not.toThrow('raw diff should be passed');
   });
 
   test('should split whole diff on separate files', () => {
