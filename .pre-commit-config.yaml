@@ -1,0 +1,19 @@
+fail_fast: true
+default_stages: [commit, manual]
+
+# See https://pre-commit.com for more information
+# See https://pre-commit.com/hooks.html for more hooks
+repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.0.1
+    hooks:
+      - id: trailing-whitespace
+        args: [--markdown-linebreak-ext=md]
+      - id: end-of-file-fixer
+      - id: check-merge-conflict
+
+  - repo: https://github.com/alessandrojcm/commitlint-pre-commit-hook
+    rev: v8.0.0
+    hooks:
+      - id: commitlint
+        stages: [commit-msg]
