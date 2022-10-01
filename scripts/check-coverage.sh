@@ -4,7 +4,7 @@ set -euo pipefail
 
 SCRIPT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
 REPO_DIR=$( echo "$SCRIPT_DIR" | sed -E "s|/scripts||g" )
-DEFAULT_GIT_BRANCH=main
+DEFAULT_GIT_BRANCH="origin/main"
 CURRENT_GIT_BRANCH=$(git branch --show-current)
 
 node "${SCRIPT_DIR}/../index.js" \
