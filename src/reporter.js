@@ -28,7 +28,7 @@ export default class Reporter {
     const nameTemplate = this.args.FileTemplate;
 
     return this.gitDiff.ModifiedLines
-      .filter(({ fileName }) => minimatch(fileName, nameTemplate));
+      .filter(({ fileName }) => !!fileName && minimatch(fileName, nameTemplate));
   }
 
   getCoverageReportByFile(filesToCheck) {

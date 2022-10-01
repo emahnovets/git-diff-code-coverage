@@ -21,4 +21,5 @@ jobs:
       uses: actions/setup-node@v3
     - run: npm ci
     - run: npm run lint
-    - run: npm test
+    - run: npm run test:coverage
+    - run: npm run check:coverage

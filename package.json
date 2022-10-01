@@ -6,6 +6,8 @@
   "scripts": {
     "install:pre-commit-hooks": "pre-commit install --install-hooks --allow-missing-config -t pre-commit -t prepare-commit-msg -t commit-msg -f",
     "test": "jest",
+    "test:coverage": "jest --collectCoverage",
+    "check:coverage": "./scripts/check-coverage.sh",
     "lint": "eslint .",
     "start": "node index.js",
     "semantic-release": "semantic-release"
