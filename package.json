@@ -5,11 +5,12 @@
   "main": "index.js",
   "scripts": {
     "test": "jest",
+    "lint": "eslint .",
     "start": "node index.js"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/EvgenyMahnovets/git-diff-code-coverage.git"
+    "url": "git+https://github.com/emahnovets/git-diff-code-coverage.git"
   },
   "keywords": [
     "coverage",
@@ -20,12 +21,12 @@
     "gitDiffCodeCoverage": "./bin/main.js"
   },
   "preferGlobal": true,
-  "author": "Evgeny Mahnovets <evgeny.mahnovets@gmail.com>",
+  "author": "Evgeny Mahnovets <mail@emahnovets.dev>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/EvgenyMahnovets/git-diff-code-coverage/issues"
+    "url": "https://github.com/emahnovets/git-diff-code-coverage/issues"
   },
-  "homepage": "https://github.com/EvgenyMahnovets/git-diff-code-coverage#readme",
+  "homepage": "https://github.com/emahnovets/git-diff-code-coverage#readme",
   "dependencies": {
     "babel-core": "^6.26.3",
     "babel-jest": "^23.4.0",
