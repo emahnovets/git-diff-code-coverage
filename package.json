@@ -41,7 +41,7 @@
     "minimatch": "^5.1.0",
     "regenerator-runtime": "^0.13.9",
     "semver": "^7.3.7",
-    "simple-git": "^3.14.1"
+    "simple-git": "^3.21.0"
   },
   "devDependencies": {
     "@babel/preset-env": "^7.19.3",
