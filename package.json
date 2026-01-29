@@ -39,7 +39,7 @@
     "esm": "^3.2.25",
     "lcov-parse": "^1.0.0",
     "minimatch": "^5.1.0",
-    "regenerator-runtime": "^0.13.9",
+    "regenerator-runtime": "^0.14.0",
     "semver": "^7.3.7",
     "simple-git": "^3.14.1"
   },
